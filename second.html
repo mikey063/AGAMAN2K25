@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Success - Freshers' Party</title>
+    <style>
+        body { font-family:'Roboto',sans-serif; background:#0b0c2a; color:#fff; text-align:center; padding:50px 20px; }
+        h1 { font-size:2.5rem; color:#00ff99; text-shadow:0 0 15px #00ff99; }
+        p { font-size:1.2rem; margin:20px 0; }
+        .ticket { background:#000033; padding:20px; border-radius:10px; margin:30px auto; max-width:400px; box-shadow:0 0 20px #ff00ff; }
+        .download-btn { display:inline-block; padding:12px 25px; margin-top:20px; background:#ff00ff; color:#fff; border-radius:30px; text-transform:uppercase; font-weight:bold; cursor:pointer; text-decoration:none; box-shadow:0 0 15px #ff00ff; }
+        .download-btn:hover { background:#ff00ffcc; }
+    </style>
+</head>
+<body>
+    <h1>Payment Successful!</h1>
+    <p>Thank you for purchasing your ticket for <strong>Freshers' Party - Aagaman x Aagaaz</strong>.</p>
+
+    <div class="ticket" id="ticket">
+        <h2>Your E-Ticket</h2>
+        <p><strong>Event:</strong> Freshers' Party - Aagaman x Aagaaz</p>
+        <p><strong>Date & Time:</strong> Friday, 19 Sep 2025, 1 PM</p>
+        <p><strong>Venue:</strong> The Fern Residency</p>
+        <p><strong>Payment ID:</strong> <span id="payment-id"></span></p>
+        <p><strong>Ticket ID:</strong> <span id="ticket-id"></span></p>
+    </div>
+
+    <a class="download-btn" onclick="downloadTicket()">Download E-Ticket</a>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const paymentId = urlParams.get('payment_id');
+        document.getElementById('payment-id').innerText = paymentId;
+
+        const ticketId = 'FP2025-' + Math.floor(Math.random()*90000 + 10000);
+        document.getElementById('ticket-id').innerText = ticketId;
+
+        function downloadTicket(){
+            const ticketContent = document.getElementById('ticket').innerText;
+            const blob = new Blob([ticketContent], { type:'text/plain' });
+            const link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.download = `E-Ticket-${ticketId}.txt`;
+            link.click();
+        }
+    </script>
+</body>
+</html>

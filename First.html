@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freshers' Party - Aagaman x Aagaaz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { margin:0; padding:0; font-family:'Roboto', sans-serif; background:#0b0c2a; color:#fff; overflow-x:hidden; }
+        a { text-decoration:none; color:inherit; }
+
+        header {
+            position: relative; height:100vh;
+            background: url('https://images.unsplash.com/photo-1542223616-3f279d91a5a5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fGNvd2R8ZW58MHx8fHwxNjk0MzgwODI2&ixlib=rb-4.0.3&q=80&w=1080') center/cover no-repeat;
+            display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;
+        }
+        header::after { content:''; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,50,0.7); }
+        header h1 { font-family:'Orbitron',sans-serif; font-size:3rem; color:#fff; font-weight:700; text-shadow:0 0 15px #00fff7,0 0 30px #00fff7; position:relative; z-index:1; }
+        header h2 { font-family:'Orbitron',sans-serif; font-size:2rem; color:#ff00ff; text-shadow:0 0 10px #ff00ff,0 0 20px #ff00ff; margin-top:10px; position:relative; z-index:1; }
+
+        .event-details { padding:60px 20px; text-align:center; background:#0b0c2a; }
+        .event-details h3 { font-size:2rem; margin-bottom:20px; color:#00f7ff; text-shadow:0 0 10px #00f7ff; }
+        .event-details p { font-size:1.2rem; margin-bottom:15px; }
+        .highlight { color:#ff4500; font-weight:bold; }
+        .buy-btn { display:inline-block; padding:12px 30px; background:#ff00ff; color:#fff; font-weight:bold; border-radius:30px; margin-top:10px; text-transform:uppercase; box-shadow:0 0 15px #ff00ff; transition:all 0.3s ease; }
+        .buy-btn:hover { background:#ff00ffcc; box-shadow:0 0 30px #ff00ff; }
+
+        .organizers { padding:60px 20px; background:linear-gradient(135deg,#0b0c2a,#000033); text-align:center; }
+        .organizers h3 { font-size:2rem; margin-bottom:20px; color:#00ff99; text-shadow:0 0 10px #00ff99; }
+        .organizers ul { list-style:none; margin-bottom:20px; }
+        .organizers li { margin:10px 0; font-size:1.2rem; }
+        .contact-info { font-size:1rem; margin-top:10px; }
+
+        .cta { padding:60px 20px; text-align:center; background:#0b0c2a; }
+        .cta h3 { font-size:2rem; margin-bottom:20px; color:#ff00ff; }
+        .cta .dm-btn { display:inline-block; padding:12px 30px; background:#00ffff; color:#000; font-weight:bold; border-radius:30px; box-shadow:0 0 15px #00ffff; transition:all 0.3s ease; margin:5px; }
+        .dm-btn:hover { background:#00ffffcc; box-shadow:0 0 30px #00ffff; }
+
+        .social-icons { margin-top:20px; }
+        .social-icons a { margin:0 10px; color:#fff; font-size:1.5rem; transition:all 0.3s ease; }
+        .social-icons a:hover { color:#ff00ff; text-shadow:0 0 10px #ff00ff; }
+
+        footer { padding:20px; text-align:center; background:#000022; font-size:0.9rem; color:#aaa; }
+
+        @media (max-width:768px){
+            header h1 { font-size:2rem; }
+            header h2 { font-size:1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Freshers' Party</h1>
+    <h2>Aagaman x Aagaaz</h2>
+</header>
+
+<section class="event-details">
+    <h3>Event Details</h3>
+    <p>Date & Time: <span class="highlight">Friday, 19 Sep 2025, Starts at 1 PM</span></p>
+    <p>Venue: <span class="highlight">The Fern Residency</span></p>
+    <p>Ticket Price: <span class="highlight">999 Per Person</span></p>
+    <button id="rzp-button" class="buy-btn">Buy Tickets</button>
+</section>
+
+<section class="organizers">
+    <h3>Organizers</h3>
+    <ul>
+        <li>Sunil Jani</li>
+        <li>Arjun Choudhary</li>
+        <li>Sachin Bishnoi</li>
+        <li>Kunal Chawriya</li>
+        <li>Govardhan Dhaka</li>
+    </ul>
+    <p class="contact-info">Contact Us: 7414007902 / 9887555177</p>
+</section>
+
+<section class="cta">
+    <h3>DM for Passes</h3>
+    <a href="https://instagram.com/aagaman_freshers2025" class="dm-btn" target="_blank">@aagaman_freshers2025</a>
+    <a href="https://instagram.com/aagaaz2k25" class="dm-btn" target="_blank">@aagaaz2k25</a>
+    <div class="social-icons">
+        <a href="https://instagram.com/aagaman_freshers2025" target="_blank">📸</a>
+        <a href="https://instagram.com/aagaaz2k25" target="_blank">📸</a>
+    </div>
+</section>
+
+<footer>
+    #Freshers2025 | Follow us on Instagram | Enjoy the Party!
+</footer>
+
+<!-- Razorpay Script -->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+    const options = {
+        "key": "YOUR_RAZORPAY_KEY_ID", // अपना Razorpay Key ID डालो
+        "amount": 99900, // ₹999 in paise
+        "currency": "INR",
+        "name": "Freshers' Party - Aagaman x Aagaaz",
+        "description": "Ticket for Freshers' Party",
+        "handler": function (response){
+            window.location.href = `success.html?payment_id=${response.razorpay_payment_id}`;
+        },
+        "theme": { "color": "#ff00ff" }
+    };
+    const rzp1 = new Razorpay(options);
+    document.getElementById('rzp-button').onclick = function(e){
+        rzp1.open();
+        e.preventDefault();
+    }
+</script>
+
+</body>
+</html>
